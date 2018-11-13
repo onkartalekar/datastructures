@@ -106,11 +106,49 @@ public class Test {
             System.out.println(key + " -> " + val);
         });
 
+        printCurrentMethodName();
+
+        String[] strings = {"ABC", "DEF", "GHI"};
+        System.out.println(Arrays.toString(strings));
+
+        String str = "abc", str2 = null, str3 = str != null ? str : null;
+        System.out.println(String.format("%s %s %s", str, str2, str3));
+
+        Map<String, List<String>> stringStringMap = new HashMap<>();
+        stringStringMap.put("1", new ArrayList<>(Arrays.asList("VAL1")));
+
+        List<String> stringSet = stringStringMap.get("1");
+        stringSet.add("VAL2");
+
+        System.out.println(Arrays.toString(stringSet.toArray(new String[0])));
+
+        MultiValueMap stringMap = new MultiValueMap();
+        stringMap.put("First", "One");
+        stringMap.put("First", "Two");
+        stringMap.put("First", "One");
+        stringMap.put("Three", "Three");
+
+        Set<String> keySet = stringMap.keySet();
+        for (String o : keySet) {
+            System.out.println(stringMap.get(o));
+        }
+
+
+
        /* int i = 5;
         System.out.println(i ^ i << 3);
 
         String str = "Hello World";
 
         System.out.println(str.hashCode());*/
+    }
+
+    private static void printCurrentMethodName() {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        //System.out.println(stackTrace[1].getMethodName());
+
+        StackTraceElement[] stackTraceElements = new Throwable().getStackTrace();
+        System.out.println(stackTraceElements[0].getMethodName());
+
     }
 }

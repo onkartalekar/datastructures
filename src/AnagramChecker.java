@@ -5,36 +5,33 @@ import java.util.Arrays;
  */
 
 public class AnagramChecker {
-	
-	private static boolean checkAnagram(String inputOne, String inputTwo) {
-		String one = inputOne != null ? inputOne.toLowerCase() : "", two = inputTwo != null ? inputTwo.toLowerCase() : "";
-		char[] charsOne = one.toCharArray(), charsTwo = two.toCharArray();
-		
-		if (one.length() != two.length()) {
-			return false;
-		}
-		
-		Arrays.sort(charsOne);
-		Arrays.sort(charsTwo);
-		
-		for (int index = 0; index < charsOne.length; index++) {
-			if (Math.abs(charsOne[index] - charsTwo[index]) != 0) {
-				return false;
-			}
-		}
-		
-		return true;
-	}
-	
-	public static void main(String[] args) {
-		boolean checkAnagram = checkAnagram("SOLAR", "orals");
-		
-		if (checkAnagram) {
-			System.out.println("Anagram");
-		} else {
-			System.out.println("Not an anagram");
-		}
-	}
-	
-	
+
+    private static boolean checkAnagram(String inputOne, String inputTwo) {
+        String one = inputOne != null ? inputOne.toLowerCase() : "";
+        String two = inputTwo != null ? inputTwo.toLowerCase() : "";
+        char[] charsOne = one.toCharArray();
+        char[] charsTwo = two.toCharArray();
+
+        if (one.length() != two.length()) {
+            return false;
+        }
+
+        Arrays.sort(charsOne);
+        Arrays.sort(charsTwo);
+
+        for (int index = 0; index < charsOne.length; index++) {
+            if (Math.abs(charsOne[index] - charsTwo[index]) != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        if (checkAnagram("SOLAR", "orals")) {
+            System.out.println("Anagram");
+            return;
+        }
+        System.out.println("Not an anagram");
+    }
 }
