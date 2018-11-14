@@ -4,7 +4,7 @@ package tree;
  * @author taleko01
  */
 
-public class TreeUtils {
+public class TreeTraversalRecursive {
 	
 	public static TreeNode buildTree() {
 		TreeNode root = new TreeNode(10);
@@ -29,7 +29,7 @@ public class TreeUtils {
 				} else {
 					root = root.getRight();
 				}
-				
+
 			} else {
 				if (root.getLeft() == null) {
 					root.setLeft(new TreeNode(data));
@@ -41,7 +41,7 @@ public class TreeUtils {
 		}
 	}
 	
-	public static void traverseInOrder(TreeNode root) {
+	static void traverseInOrder(TreeNode root) {
 		if (root != null) {
 			traverseInOrder(root.getLeft());
 			System.out.println(root.getData());
@@ -49,7 +49,7 @@ public class TreeUtils {
 		}
 	}
 	
-	public static void traversePreOrder(TreeNode root) {
+	static void traversePreOrder(TreeNode root) {
 		if (root != null) {
 			System.out.println(root.getData());
 			traversePreOrder(root.getLeft());
@@ -57,7 +57,7 @@ public class TreeUtils {
 		}
 	}
 	
-	public static void traversePostOrder(TreeNode root) {
+	static void traversePostOrder(TreeNode root) {
 		if (root != null) {
 			traversePostOrder(root.getLeft());
 			traversePostOrder(root.getRight());
