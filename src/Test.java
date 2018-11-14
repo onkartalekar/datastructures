@@ -1,6 +1,8 @@
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.regex.Pattern;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * Created by TalekO01 on 7/9/2018
@@ -10,7 +12,14 @@ public class Test {
 
     public static void main(String... args) {
 
-        String str = "adbc";
+        List<Integer> integers = new ArrayList<>(Arrays.asList(1, 2, null, 4, 5));
+
+        //while(integers.remove(null));
+
+        List<Integer> collect = integers.stream().filter(Objects::nonNull).collect(Collectors.toList());
+        collect.forEach(i -> System.out.println(i));
+
+        /*String str = "adbc";
         char[] charArray = str.toCharArray();
         charArray[0] = 'C';
 
@@ -43,7 +52,7 @@ public class Test {
         System.out.println(phonePatterm.matcher("111,1111").find());
         System.out.println(phonePatterm.matcher("111,,,,1111").find());
         System.out.println(phonePatterm.matcher("111    1111").find());
-
+*/
 		/*Map<Integer, Integer> integerMap = new ConcurrentHashMap<>();
 		
 		integerMap.put(1, 100);
