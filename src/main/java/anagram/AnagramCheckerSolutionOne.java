@@ -1,10 +1,12 @@
+package anagram;
+
 import java.util.Arrays;
 
 /**
  * @author taleko01
  */
 
-public class AnagramChecker {
+public class AnagramCheckerSolutionOne {
 
     private static boolean checkAnagram(String inputOne, String inputTwo) {
         String one = inputOne != null ? inputOne.toLowerCase() : "";
