@@ -15,7 +15,7 @@ public class TrieTest {
             TrieNode trieNode = root;
             char[] chars = word.toCharArray();
             for (char c : chars) {
-                TrieNode node = trieNode.find(c);
+                TrieNode node = trieNode.findNodeForData(c);
                 if (node != null) {
                     trieNode = node;
                     index++;
@@ -24,6 +24,6 @@ public class TrieTest {
                 }
             }
         }
-        System.out.println(root);
+        System.out.println(root.findWord("onkars"));
     }
 }
