@@ -10,7 +10,7 @@ public class TestHeap {
 
     private int[] items = new int[MAX_SIZE];
 
-    public int[] getItems() {
+    int[] getItems() {
         return items;
     }
 
