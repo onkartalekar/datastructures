@@ -6,8 +6,8 @@ package heap;
 public class Runner {
 
     public static void main(String... args) {
-        int[] numbers = {1, 4, -2, -8, -20, -6};
-        TestHeap heap = new TestHeap();
+        int[] numbers = {1, 4, -2};
+        TestHeap heap = new TestHeap(3);
         for (int number : numbers) {
             heap.add(number);
         }

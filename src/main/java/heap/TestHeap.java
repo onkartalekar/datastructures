@@ -5,23 +5,35 @@ package heap;
 
 public class TestHeap {
 
-    private static final int MAX_SIZE = 3;
+    private int maxSize;
     private int size = 0;
 
-    private int[] items = new int[MAX_SIZE];
+    private int[] items;
+
+    public TestHeap(int maxSize) {
+        this.maxSize = maxSize;
+        items = new int[maxSize];
+    }
 
     public int[] getItems() {
         return items;
     }
 
     public void add(int data) {
-        if (size < MAX_SIZE) {
+        if (size < maxSize) {
             items[size++] = data;
+            if (size == maxSize) {
+                heapifyDown();
+            }
         } else if (data < items[0]) {
             items[0] = data;
-            int maxChildIndex = leftChild(0) > rightChild(0) ? getLeftChildIndex(0) : getRightChildIndex(0);
-            swapWithRoot(maxChildIndex);
+            heapifyDown();
         }
+    }
+
+    private void heapifyDown() {
+        int maxChildIndex = leftChild(0) > rightChild(0) ? getLeftChildIndex(0) : getRightChildIndex(0);
+        swapWithRoot(maxChildIndex);
     }
 
     private void swapWithRoot(int maxChildIndex) {
@@ -31,9 +43,9 @@ public class TestHeap {
     }
 
 
-    private int getParentIndex(int index) {
+   /* private int getParentIndex(int index) {
         return (index - 1) / 2;
-    }
+    }*/
 
     private int getLeftChildIndex(int index) {
         return 2 * index + 1;
