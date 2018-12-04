@@ -9,10 +9,10 @@ public class Runner {
     public static void main(String[] args) {
 
         RunnableThread runnableThread = new RunnableThread();
-        ChildThread childThread = new ChildThread(runnableThread, "Runnable");
+        Thread childThread = new Thread(runnableThread, "Runnable");
         childThread.start();
 
-        System.out.println(String.format("%s : %s", Thread.currentThread().getName(), childThread.getI()));
+//        System.out.println(String.format("%s : %s", Thread.currentThread().getName(), childThread.getI()));
 
     }
 
