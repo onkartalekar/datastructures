@@ -25,20 +25,46 @@ public class TestHeap {
             if (size == maxSize) {
                 heapifyDown();
             }
-        } else if (data < items[0]) {
+        } else if (data >= items[0]) {
             items[0] = data;
-            heapifyDown();
+        } else {
+            positionElementInHeap(data);
         }
     }
 
-    private void heapifyDown() {
-        int maxChildIndex = leftChild(0) > rightChild(0) ? getLeftChildIndex(0) : getRightChildIndex(0);
-        swapWithRoot(maxChildIndex);
+    private void positionElementInHeap(int data) {
+        int index = 0;
+        while (data < items[index] && data <= leftChild(index) && data <= rightChild(index)){
+            index = leftChild(index) < rightChild(index) ? getLeftChildIndex(index) : getRightChildIndex(index);
+        }
+
+        // replace largest child
+        int newElementIndex = leftChild(index) > rightChild(index) ? getLeftChildIndex(index) : getRightChildIndex(index);
+        items[newElementIndex] = data;
+
     }
 
-    private void swapWithRoot(int maxChildIndex) {
-        int temp = items[0];
-        items[0] = items[maxChildIndex];
+    private void heapifyDown() {
+        for (int index = size / 2; index >= 0; index--) {
+            while (shouldHeapifyDown(index)) {
+                int leftChild = getLeftChildIndex(index) < size ? leftChild(index) : Integer.MIN_VALUE;
+                int rightChild = getRightChildIndex(index) < size ? rightChild(index) : Integer.MIN_VALUE;
+                int maxChildIndex = leftChild > rightChild ? getLeftChildIndex(index) : getRightChildIndex(index);
+                swap(index, maxChildIndex);
+                index = maxChildIndex;
+            }
+        }
+    }
+
+    private boolean shouldHeapifyDown(int index) {
+        int leftChild = getLeftChildIndex(index) < size ? leftChild(index) : Integer.MIN_VALUE;
+        int rightChild = getRightChildIndex(index) < size ? rightChild(index) : Integer.MIN_VALUE;
+        return items[index] < Math.max(leftChild, rightChild);
+    }
+
+    private void swap(int index, int maxChildIndex) {
+        int temp = items[index];
+        items[index] = items[maxChildIndex];
         items[maxChildIndex] = temp;
     }
 
