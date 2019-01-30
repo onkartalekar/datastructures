@@ -13,13 +13,13 @@ public class Test {
 
     public static void main(String... args) {
 
-        List<Integer> integers = new ArrayList<>(Arrays.asList(1, 2, null, 4, 5));
+       /* List<Integer> integers = new ArrayList<>(Arrays.asList(1, 2, null, 4, 5));
 
         //while(integers.remove(null));
 
         List<Integer> collect = integers.stream().filter(Objects::nonNull).collect(Collectors.toList());
         collect.forEach(i -> System.out.println(i));
-
+*/
         /*String str = "adbc";
         char[] charArray = str.toCharArray();
         charArray[0] = 'C';
@@ -36,7 +36,7 @@ public class Test {
 
         System.out.println(Math.sqrt(24));
         System.out.println((int) Math.sqrt(24));
-        System.out.println(Math.floor(Math.sqrt(24)));
+        System.out.println(Math.floor(Math.sqrt(24)));*/
 
         String[] strArray = {"a", "z", "b"};
         Arrays.sort(strArray, new Comparator<String>() {
@@ -45,7 +45,7 @@ public class Test {
                 return o1.charAt(0) - o2.charAt(0);
             }
         });
-
+/*
         Pattern phonePatterm = Pattern.compile("\\d{3}([,\\s])+\\d{4}");
         System.out.println(phonePatterm.matcher("1111111").find());
         System.out.println(phonePatterm.matcher("111 1111").find());
@@ -61,6 +61,7 @@ public class Test {
         integerMap.put(3, 300);
         integerMap.put(4, 400);
 
+
         /*Object[] objects = integerMap.values().toArray();
 
         System.out.println(objects[0]);*/
@@ -68,10 +69,10 @@ public class Test {
         System.out.println("------------------");
         for (Integer integer : integerMap.keySet()) {
             System.out.println(integer + " -> " + integerMap.get(integer));
-            /*System.out.println(integerMap.get(integer) + " : removed");
-            integerMap.remove(integer);*/
+            System.out.println(integerMap.get(integer) + " : removed");
+            integerMap.remove(integer);
         }
-
+/*
         Map<Integer, Integer> map = new Hashtable<>();
 
         map.put(1, 100);
@@ -138,7 +139,7 @@ public class Test {
         Set<String> keySet = stringMap.keySet();
         for (String o : keySet) {
             System.out.println(stringMap.get(o));
-        }
+        }*/
 
 
 
